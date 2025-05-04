@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tala Jihad - Fashion Trends 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdf6f0;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #f8c8d2;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #6a4c6c;
+    }
+
+    nav {
+      text-align: center;
+      padding: 15px;
+      background-color: #fff0f3;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #6a4c6c;
+      font-weight: bold;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff5f8b;
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 20px;
+      margin: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+      color: #6a4c6c;
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    #welcome {
+      background-color: #ffe5ec;
+      border: 2px dashed #f8c8d2;
+      text-align: center;
+    }
+
+    #welcome p {
+      font-size: 1.1em;
+      color: #5b3a4d;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #d1577e;
+    }
+
+    .heart {
+      color: #ff6f91;
+      font-size: 1.3em;
+    }
+
+    .trends-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      justify-content: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .flip-card {
+      width: 100%;
+      max-width: 300px;
+      height: 260px;
+      perspective: 1000px;
+      position: relative;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.clicked .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-front, .flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      backface-visibility: hidden;
+      box-sizing: border-box;
+    }
+
+    .flip-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .flip-back {
+      background-color: #fce7ec;
+      color: #6a4c6c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      transform: rotateY(180deg);
+      font-size: 1em;
+    }
+
+    #beauty-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 20px;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .trend img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .trend img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+
+    .trend h3 {
+      margin-top: 10px;
+      color: #b5838d;
+    }
+
+    .trend p {
+      font-size: 0.9em;
+      color: #555;
+      max-width: 200px;
+      margin: 5px auto 0;
+    }
+
+    #quiz {
+      background-color: #fff0f3;
+      text-align: center;
+    }
+
+    #quiz a {
+      display: inline-block;
+      background-color: #f8c8d2;
+      color: #6a4c6c;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    #quiz a:hover {
+      background-color: #f4b6c1;
+    }
+
+    #contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    #contact input,
+    #contact textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    #contact button {
+      padding: 12px 24px;
+      background-color: #f8c8d2;
+      color: #6a4c6c;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #contact button:hover {
+      background-color: #f4b6c1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      background: #ffe5ec;
+      color: #6a4c6c;
+    }
+
+    @media (max-width: 800px) {
+      .trends-grid {
+        grid-template-columns: 1fr;
+      }
+      #beauty-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      #beauty-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tala Jihad - Fashion Trends 2025</h1>
+  </header>
+
+  <nav>
+    <a href="#welcome">Welcome</a>
+    <a href="#trends">Trends</a>
+    <a href="#beauty">Beauty</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="welcome">
+    <h2>Hello! I'm Tala Abu Ramilah 💕</h2>
+    <p>
+      I'm <span class="highlight">20 years old</span> and fashion is my world. I believe fashion is more than clothes — it’s art, identity, and self-love.
+      This website is a place where I collect and showcase the latest <span class="highlight">2025 fashion trends</span>, share beautiful
+      <span class="highlight">hair inspirations</span>, and help you discover your personal style.
+      <span class="heart">♥</span>
+    </p>
+  </section>
+
+  <section id="trends">
+    <h2>Spring 2025 Fashion Trends</h2>
+    <div class="trends-grid">
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front"><img src="https://content.api.news/v3/images/bin/514c0f23cea19320246723fff611aa4b?width=1024" alt="Trend 1"></div>
+        <div class="flip-back">Bold color palettes will dominate Spring 2025 wardrobes.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front"><img src="https://assets.vogue.com/photos/67afb84cb518a56837867bef/master/w_1600,c_limit/SS25Pt2_Embed-RTW-preppy.png" alt="Trend 2"></div>
+        <div class="flip-back">The preppy look returns with polished and playful edge.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front"><img src="https://assets.vogue.com/photos/6763444b4938b970307c57b8/master/w_1600,c_limit/ss25-embeds-rtw-01.png" alt="Trend 3"></div>
+        <div class="flip-back">Relaxed ready-to-wear styles lead the runway trend shift.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front"><img src="https://assets.vogue.com/photos/6763444b330371a72eddb065/master/w_1600,c_limit/ss25-embeds-rtw-02.png" alt="Trend 4"></div>
+        <div class="flip-back">Flowing silhouettes meet modern structure this season.</div>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="beauty">
+    <h2>Summer Hair Color Trends That Will Flood Your Social Feeds</h2>
+    <div id="beauty-grid">
+      <div class="trend"><img src="https://assets.vogue.com/photos/68095cdc85e199922a9bfd1f/master/w_960,c_limit/2206901381"><h3>Warm Caramel</h3><p>Soft golden highlights to brighten up your summer look.</p></div>
+      <div class="trend"><img src="https://assets.vogue.com/photos/680959f1edc57014f6b8919b/master/w_960,c_limit/2203994755"><h3>Copper Red</h3><p>Vibrant and fiery — the boldest trend of the season.</p></div>
+      <div class="trend"><img src="https://assets.vogue.com/photos/68094eacedc57014f6b89197/master/w_960,c_limit/2074319054"><h3>Platinum Blonde</h3><p>Chic and icy — the ultimate cool-girl statement.</p></div>
+      <div class="trend"><img src="https://assets.vogue.com/photos/68094f63d2ba2abe1df65bc6/master/w_960,c_limit/2074470363"><h3>Sun-Kissed Blonde</h3><p>Natural beachy tones for an effortless glow.</p></div>
+      <div class="trend"><img src="https://assets.vogue.com/photos/68095125ef35fa1f0c08a043/master/w_960,c_limit/1986928598"><h3>Soft Lavender</h3><p>Pastel perfection for a dreamy summer aesthetic.</p></div>
+      <div class="trend"><img src="https://assets.vogue.com/photos/6809530a3254e4eaef198c17/master/w_960,c_limit/2075543377"><h3>Rose Gold</h3><p>Romantic and glowing, it flatters every skin tone.</p></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>🧠 Discover Your Style</h2>
+    <a href="https://betterme-style.com/en/first-page-generated?flow=3433&utm_source=google&utm_medium=cpc" target="_blank">
+      Take the Style Quiz
+    </a>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form action="#" method="post">
+      <label for="name">Your Name:</label><br />
+      <input type="text" id="name" name="name" required /><br />
+
+      <label for="email">Your Email:</label><br />
+      <input type="email" id="email" name="email" required /><br />
+
+      <label for="message">Message:</label><br />
+      <textarea id="message" name="message" rows="5" required></textarea><br />
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Tala Jihad. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('clicked');
+      });
+    });
+  </script>
+</body>
+</html>
+website.html
+Displaying website.html.
